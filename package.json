@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "Js dev environment",
   "scripts": {
+    "prestart": "babel-node scripts/startupMessage.js",
+    "start": "npm-run-all --parallel security-check serve",
+    "serve": "babel-node scripts/server.js",
+    "security-check": "nsp check"
   },
   "author": "Johannes Lindgren",
   "license": "MIT",
