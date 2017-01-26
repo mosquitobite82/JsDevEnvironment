@@ -1,7 +1,7 @@
 {
   "name": "js-dev-environment",
   "version": "1.0.0",
-  "description": "Js dev environment",
+  "description": "Js dev environment built, based upon the Pluralsight course by Cory House",
   "scripts": {
     "prestart": "babel-node scripts/startupMessage.js",
     "start": "npm-run-all --parallel security-check serve",
