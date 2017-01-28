@@ -1,7 +1,7 @@
 {
   "name": "js-dev-environment",
   "version": "1.0.0",
-  "description": "Js dev environment built, based upon the Pluralsight course by Cory House",
+  "description": "Js dev environment based upon Pluralsight course by Cory House",
   "scripts": {
     "lint": "esw webpack.config.* src scripts --color",
     "lint:watch": "npm run lint -- --watch",
