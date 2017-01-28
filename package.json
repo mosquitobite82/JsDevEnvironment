@@ -6,9 +6,11 @@
     "lint": "esw webpack.config.* src scripts --color",
     "lint:watch": "npm run lint -- --watch",
     "prestart": "babel-node scripts/startupMessage.js",
-    "start": "npm-run-all --parallel security-check serve lint:watch",
+    "start": "npm-run-all --parallel security-check serve lint:watch test:watch",
     "serve": "babel-node scripts/server.js",
-    "security-check": "nsp check"
+    "security-check": "nsp check",
+    "test": "mocha --reporter progress scripts/testSetup.js \"src/**/*.test.js\"",
+    "test:watch": "npm run test -- --watch"
   },
   "author": "Johannes Lindgren",
   "license": "MIT",
