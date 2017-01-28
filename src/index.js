@@ -1,6 +1,21 @@
-import './index.css'; // Not Mocha compatible, Will be disabled during test
-import numeral from 'numeral';
+import './index.css'; // Import statements Not Mocha compatible, Will be disabled during test
+import {getUsers} from './api/userApi';
 
-const val = numeral(1000).format('$0,0.00');
+getUsers().then( result => {
+  let usersBody = "";
 
-console.log(`Wow! ${val} dollars!`); // eslint-disable-line no-console
+  result.forEach(user => {
+    usersBody +=`<tr>
+    <td>
+      <a href="#" data-id="${user.id}" class="deleteUser">Delete</a>
+    </td>
+    <td>${user.id}</td>
+    <td>${user.firstName}</td>
+    <td>${user.lastName}</td>
+    <td>${user.email}</td>
+    </tr>
+    `
+  });
+
+  global.document.getElementById('users').innerHTML = usersBody;
+});

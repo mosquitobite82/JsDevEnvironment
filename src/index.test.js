@@ -10,11 +10,11 @@ describe('Our First Test', () => {
 
 /* Async actions with callbacks, needs a 'done' param as below */
 describe('index.html', () => {
-  it('should say hello', (done) => {
+  it('should have h1 that says Users', (done) => {
     const index = fs.readFileSync('./src/index.html', 'utf-8');
     jsdom.env(index, function(err, window){
       const h1 = window.document.getElementsByTagName('h1')[0];
-      expect(h1.innerHTML).to.equal("Hello World!");
+      expect(h1.innerHTML).to.equal("Users");
       done(); // Async. Report results after action is done
       window.close();
     });
