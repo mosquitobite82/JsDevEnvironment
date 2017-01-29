@@ -18,4 +18,5 @@ getUsers().then( result => {
   });
 
   global.document.getElementById('users').innerHTML = usersBody;
+  
 });

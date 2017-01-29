@@ -3,14 +3,17 @@
   "version": "1.0.0",
   "description": "Js dev environment based upon Pluralsight course by Cory House",
   "scripts": {
+    "prestart": "babel-node scripts/startupMessage.js",
+    "start": "npm-run-all --parallel security-check open:src lint:watch test:watch start-mock-api",
     "lint": "esw webpack.config.* src scripts --color",
     "lint:watch": "npm run lint -- --watch",
-    "prestart": "babel-node scripts/startupMessage.js",
-    "start": "npm-run-all --parallel security-check serve lint:watch test:watch",
-    "serve": "babel-node scripts/server.js",
+    "open:src": "babel-node scripts/server.js",
     "security-check": "nsp check",
     "test": "mocha --reporter progress scripts/testSetup.js \"src/**/*.test.js\"",
-    "test:watch": "npm run test -- --watch"
+    "test:watch": "npm run test -- --watch",
+    "generate-mock-data": "babel-node scripts/genMockData",
+    "prestart-mock-api": "npm run generate-mock-data",
+    "start-mock-api": "json-server --watch src/api/db.json --port 8089"
   },
   "author": "Johannes Lindgren",
   "license": "MIT",
