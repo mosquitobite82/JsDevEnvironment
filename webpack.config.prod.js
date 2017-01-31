@@ -1,6 +1,7 @@
 import path from 'path';
 import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import WebpackMd5Hash from 'webpack-md5-hash';
 
 export default {
   debug: true,
@@ -16,9 +17,10 @@ export default {
     publicPath: '/'
   },
   plugins: [
+    new WebpackMd5Hash(),
     new webpack.optimize.CommonsChunkPlugin({
       names: ['vendor', 'main'],
-      filename: '[name].bundle.js'
+      filename: '[name].[chunkhash].bundle.js'
     }),
     new HtmlWebpackPlugin({
       template: 'src/index.html',
