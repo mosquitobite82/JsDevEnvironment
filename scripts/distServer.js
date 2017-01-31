@@ -1,9 +1,8 @@
+/* eslint-disable no-console */
 import express from 'express';
 import path from 'path';
 import open from 'open';
 import compression from 'compression';
-
-/* eslint-disable no-console */
 
 const port = 8088;
 const app = express();
