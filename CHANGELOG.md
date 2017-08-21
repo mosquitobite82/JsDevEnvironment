@@ -22,3 +22,8 @@
             One for css files
         - Cache busting through file name hashing
             Added to css and js files
+
+2017-08-21 Johannes Lindgren  <mosquitobite82@gmail.com>
+    * Created a branch for TS Development:
+        - All linting through tslint
+        - All code was linted through tsline:recommended rules
