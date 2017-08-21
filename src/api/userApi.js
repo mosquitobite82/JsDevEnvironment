@@ -1,25 +1,25 @@
-import 'whatwg-fetch';
-import getBaseUrl from './baseUrl';
+import "whatwg-fetch";
+import getBaseUrl from "./baseUrl";
 
-const baseUrl = getBaseUrl();  
+const baseUrl = getBaseUrl();
 
 // public functions
-export function getUsers(){
-  return get('users');
+export function getUsers() {
+  return get("users");
 }
 
 // private functions
 
 // routing
-function get(url){
+function get(url) {
   return fetch(baseUrl + url).then(onSuccess, onError);
 }
 
-// http response functions 
-function onSuccess(response){
+// http response functions
+function onSuccess(response) {
   return response.json();
 }
 
-function onError(error){
-  console.log(error); //eslint-disable-line no-console
+function onError(error) {
+  console.log(error); // tslint:disable-line
 }

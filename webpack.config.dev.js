@@ -1,36 +1,36 @@
-import path from 'path';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
+import path from "path";
+import HtmlWebpackPlugin from "html-webpack-plugin";
 
 export default {
   debug: true,
-  devtool: 'inline-source-map',
-  noInfo: false,
+  devtool: "inline-source-map",
   entry: [
-    path.resolve(__dirname, 'src/index')
-  ],
-  target: 'web',
-  output: {
-    path: path.resolve(__dirname, 'src'),
-    publicPath: '/',
-    fileName: 'bundle.js'
-  },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: 'src/index.html',
-      inject: true
-    })// Include HTML file that ref to bundles JS
+    path.resolve(__dirname, "src/index"),
   ],
   module: {
     loaders: [
-      { 
-        test: /\.js$/, 
+      {
         exclude: /node_modules/,
-        loaders: ['babel']
+        loaders: ["babel"],
+        test: /\.js$/,
       },
       {
+        loaders: ["style", "css"],
         test: /\.css$/,
-        loaders: ['style', 'css']
-      }
-    ]
-  }
-}
+      },
+    ],
+  },
+  noInfo: false,
+  output: {
+    fileName: "bundle.js",
+    path: path.resolve(__dirname, "src"),
+    publicPath: "/",
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      inject: true,
+      template: "src/index.html",
+    }), // Include HTML file that ref to bundles JS
+  ],
+  target: "web",
+};

@@ -1,11 +1,11 @@
-import './index.css'; // Import statements Not Mocha compatible, Will be disabled during test
-import {getUsers} from './api/userApi';
+import "./index.css"; // Import statements Not Mocha compatible, Will be disabled during test
+import {getUsers} from "./api/userApi";
 
 getUsers().then( result => {
   let usersBody = "";
 
   result.forEach(user => {
-    usersBody +=`<tr>
+    usersBody += `<tr>
     <td>
       <a href="#" data-id="${user.id}" class="deleteUser">Delete</a>
     </td>
@@ -14,9 +14,8 @@ getUsers().then( result => {
     <td>${user.lastName}</td>
     <td>${user.email}</td>
     </tr>
-    `
+    `;
   });
 
-  global.document.getElementById('users').innerHTML = usersBody;
-  
+  global.document.getElementById("users").innerHTML = usersBody;
 });
