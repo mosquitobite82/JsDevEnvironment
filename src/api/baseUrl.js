@@ -1,3 +1,4 @@
+// Enables mockApi Toggle by adding the query string /?useMockApi=true 
 export default function getBaseUrl(){
   return getQueryStringParameterByName('useMockApi') ? 'http://localhost:8089/' : '/';
 }
