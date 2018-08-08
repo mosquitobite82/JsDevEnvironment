@@ -1,8 +1,6 @@
 import path from 'path';
 import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-import WebpackMd5Hash from 'webpack-md5-hash';
-import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
 export default {
   debug: true,
@@ -18,8 +16,6 @@ export default {
     publicPath: '/'
   },
   plugins: [
-    new ExtractTextPlugin('[name].[contenthash].css'),
-    new WebpackMd5Hash(),
     new webpack.optimize.CommonsChunkPlugin({
       names: ['vendor', 'main'],
       filename: '[name].[chunkhash].bundle.js'
@@ -45,8 +41,7 @@ export default {
   ],
   module: {
     loaders: [
-      { test: /\.js$/, exclude: /node_modules/, loaders: ['babel']},
-      { test: /\.css$/, loader: ExtractTextPlugin.extract('css?sourceMap')}
+      { test: /\.js$/, exclude: /node_modules/, loaders: ['babel']}
     ]
   }
 }

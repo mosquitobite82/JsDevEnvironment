@@ -1,6 +1,8 @@
 import './index.css'; // Import statements Not Mocha compatible, Will be disabled during test
 import {getUsers} from './api/userApi';
 
+/* eslint-disable no-console */
+console.log('Boo');
 getUsers().then( result => {
   let usersBody = "";
 
