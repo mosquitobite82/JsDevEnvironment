@@ -1,11 +1,15 @@
-export let _Container = function(val){
-    val = val;
-};
-export let Container = function(val){
-    return new _Container(val);
-};
+import {isUndefined} from "../funcs/falsy";
 
-_Container.prototype.map = function(func){
-    return Container(func(this.val));
-}
-
+export let Container = function(v){
+    const containerType = Container.name;
+    const map = function(func){
+        return Container(func(val));
+    };
+    const val = v;
+    
+    return Object.freeze({
+        containerType,
+        map,
+        val
+    });
+};

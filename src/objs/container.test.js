@@ -1,13 +1,6 @@
 import 'mocha';
-import {assert, expect} from 'chai';
-import { Container, _Container } from "./container";
-
-describe('Container', () => {
-    it('should instantiate with or without new keyword', () => {
-        var c = Container(1);
-        assert.instanceOf(c, _Container);
-    });
-});
+import {expect} from 'chai';
+import { Container } from "./container";
 
 describe('Container.map', () => {
     let double = (x) => x * 2;

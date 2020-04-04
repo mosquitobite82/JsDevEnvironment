@@ -1,21 +1,27 @@
-export const _Left = function(message){
-    this.val = message;
-};
-export const Left = function (message){
-    return new _Left(message);
+export const Left = function(message){
+    const containerType = Left.name;
+    const map = function(func){
+        return Left(val);
+    };
+    const val = message;
+
+    return Object.freeze({
+        containerType,
+        val,
+        map
+    });
 };
 
-export const _Right = function(val){
-    this.val = val;
-};
-export const Right = function (val){
-    return new _Right(val);
-};
+export const Right = function (v){
+    const containerType = Right.name;
+    const map = function(func){
+        return Right(func(v));
+    };
+    const val = v;
 
-_Left.prototype.map = function(func){
-    return Left(this.val);
+    return Object.freeze({
+        containerType,
+        map,
+        val
+    });
 };
-_Right.prototype.map = function(func){
-    return Right(func(this.val));
-};
-
