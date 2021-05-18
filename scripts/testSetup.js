@@ -3,4 +3,4 @@
 // Babel transpile before tests run
 require('@babel/register')();
 // Disable Webpack features that mocha doesnt understand
-require.extensions['.css'] = function() {};
+require['.css'] = function() {};

@@ -22,3 +22,10 @@
             One for css files
         - Cache busting through file name hashing
             Added to css and js files
+
+2021-05-18 Johannes Lindgren <mosquitobite82@gmail.com>
+    * Updated
+        - All dev packages updated to latest major versions.
+        - Removed outdated configuration for webpack-dev-middleware for express server
+        - Removed deprecated syntax in commonjs module import in testSetup.js
+        
