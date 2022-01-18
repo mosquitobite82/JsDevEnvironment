@@ -1,3 +1,7 @@
+// This file is just boilerplate to get you started with an example
+// It's not good as is and should not be used as is.
+// Go to the README.md file for details.
+
 /* eslint-disable no-console */
 import express from 'express';
 import path from 'path';
