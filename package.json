@@ -17,7 +17,7 @@
     "postbuild": "babel-node scripts/distServer.js"
   },
   "author": "Johannes Lindgren",
-  "license": "MIT",
+  "license": "The MIT License (MIT)",
   "dependencies": {
     "whatwg-fetch": "^3.6.2"
   },
