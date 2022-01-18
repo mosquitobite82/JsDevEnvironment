@@ -8,8 +8,6 @@ export function getUsers(){
   return get('users');
 }
 
-// private functions
-
 // routing
 function get(url){
   return fetch(baseUrl + url).then(onSuccess, onError);
