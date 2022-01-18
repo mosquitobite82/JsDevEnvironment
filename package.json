@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "A library of functions",
   "scripts": {
-    "prestart": "babel-node scripts/startupMessage.js",
     "start": "npm-run-all --parallel open:src lint:watch test:watch start-mock-api",
     "lint": "esw src --color",
     "lint:watch": "npm run lint -- --watch",
