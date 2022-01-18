@@ -1,3 +1,3 @@
-import chalk from 'chalk';
+import { logSuccess } from './consoleLogging';
 
-console.log(chalk.green('Starting App in Dev Mode')); // eslint-disable-line no-console
+logSuccess('Starting App in Dev Mode'); // eslint-disable-line no-console

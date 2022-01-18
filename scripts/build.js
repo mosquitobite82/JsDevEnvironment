@@ -1,33 +1,35 @@
 /* eslint-disable no-console */
 import webpack from 'webpack';
 import webpackConfig from '../webpack.config.prod';
-import chalk from 'chalk';
+import {logError, logInfo, logSuccess, logWarning} from './consoleLogging';
+
+const concatMessagesWithNewLine = (messages) => messages.reduce((acc, curr) => acc + '\n' + curr);
+const logErrors = (errors) => logError('Webpack Errors:\n' + concatMessagesWithNewLine(errors));
+const logWarnings = (warnings) => logWarning('Webpack Warnings:\n' + concatMessagesWithNewLine(warnings));
 
 process.env.NODE_ENV = 'production';
 
-console.log(chalk.blue('Generating minified bundle for prod...'));
+logInfo('Generating minified bundle for prod...');
 
 webpack(webpackConfig).run((err, stats) => {
+ 
   if(err){
-    console.log(chalk.red(err));
+    logError(err);
     return 1;
   }
-  // Verbose info to console
   
   const jsonStats = stats.toJson();
 
-if(jsonStats.hasErrors){
-  return jsonStats.errors.map(error => console.log(chalk.red(error)));
-}
-if(jsonStats.hasWarnings){
-  console.log(chalk.yellow('Webpack Warnings generated:'))
-  jsonStats.warnings.map(warning => console.log(chalk.yellow(warning)));
-}
+  if(jsonStats.hasErrors){
+    return logErrors(jsonStats.errors);
+  }
 
-console.log(`Webpack stats: ${stats}`);
+  if(jsonStats.hasWarnings){
+    logWarnings(jsonStats.warnings);
+  }
 
-// If this far, build succeeded
-console.log(chalk.green('App has been successfully built and written to /dist.'));
+  logInfo(`Webpack stats: ${stats}`);
+  logSuccess('App has been successfully built and written to /dist.');
 
   return 0;
 });

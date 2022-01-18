@@ -4,6 +4,7 @@ import open from 'open';
 
 import webpack from 'webpack';
 import { config } from '../webpack.config.dev';
+import { logError } from './consoleLogging';
 
 /* eslint-disable no-console */
 
@@ -31,7 +32,7 @@ app.get('/users', function(req, res){
 
 app.listen(port, function(err){
   if(err){
-    console.log(err);
+    logError(err);
   } else {
     open('http://localhost:' + port);
   }

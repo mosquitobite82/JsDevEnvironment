@@ -3,6 +3,7 @@ import express from 'express';
 import path from 'path';
 import open from 'open';
 import compression from 'compression';
+import { logError } from './consoleLogging';
 
 const port = 8088;
 const app = express();
@@ -25,7 +26,7 @@ app.get('/users', function(req, res){
 
 app.listen(port, function(err){
   if(err){
-    console.log(err);
+    logError(err);
   } else {
     open('http://localhost:' + port);
   }
