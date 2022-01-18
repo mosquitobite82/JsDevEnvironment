@@ -4,13 +4,15 @@ import open from 'open';
 
 import webpack from 'webpack';
 import { config } from '../webpack.config.dev';
-import { logError } from './consoleLogging';
+import { logError, logSuccess } from './consoleLogging';
 
 /* eslint-disable no-console */
 
 const port = 8088;
 const app = express();
 const compiler = webpack(config); 
+
+logSuccess('Starting App in Dev Mode');
 
 app.use(require('webpack-dev-middleware') (compiler, {
   publicPath: config.output.publicPath
